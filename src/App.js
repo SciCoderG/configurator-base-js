@@ -1,3 +1,4 @@
+import BabylonExperience from "./BabylonExperience";
 
 function App() {
   return (
@@ -6,7 +7,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload. Test
         </p>
-       
+        <BabylonExperience />
       </header>
     </div>
   );
