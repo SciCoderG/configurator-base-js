@@ -1,4 +1,5 @@
 import {
+  Color4,
   FreeCamera,
   HemisphericLight,
   MeshBuilder,
@@ -11,6 +12,8 @@ function BabylonExperience() {
   let box;
 
   const onSceneReady = function (scene) {
+    scene.clearColor = new Color4(0, 0, 0, 0);
+
     // This creates and positions a free camera (non-mesh)
     var camera = new FreeCamera("camera1", new Vector3(0, 5, -10), scene);
 
