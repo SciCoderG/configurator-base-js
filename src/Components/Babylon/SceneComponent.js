@@ -1,8 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Engine, Scene } from "@babylonjs/core";
-import styled from "@emotion/styled";
-
-const Canvas = styled.canvas``;
 
 function useWindowSize() {
   const [size, setSize] = useState([0, 0]);
@@ -82,5 +79,5 @@ export default function SceneComponent({
     width,
   ]);
 
-  return <Canvas ref={reactCanvas} {...rest} />;
+  return <canvas ref={reactCanvas} {...rest} />;
 }

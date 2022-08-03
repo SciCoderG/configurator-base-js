@@ -14,9 +14,10 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { Link, Menu, MenuItem } from "@mui/material";
 
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Contact"];
+const navItems = ["Games", "Music", "Projects", "Contact"];
 const appName = "CrystalMesh";
 
 function DrawerAppBar(props) {
@@ -27,11 +28,25 @@ function DrawerAppBar(props) {
     setMobileOpen(!mobileOpen);
   };
 
+  /**
+   * Displays the drawer version of the menu if the screen is too small
+   */
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        {appName}
-      </Typography>
+      <Menu>
+        <MenuItem component={Link} href="/">
+          CrystalMesh
+        </MenuItem>
+      </Menu>
+      <Link href="/" sx={{ color: "secondary.contrastText" }}>
+        <Typography
+          variant="h6"
+          sx={{ my: 2, display: { textDecoration: "none" } }}
+        >
+          {appName}
+        </Typography>
+      </Link>
+
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -52,6 +67,7 @@ function DrawerAppBar(props) {
     <Box sx={{ display: "flex" }}>
       <AppBar>
         <Toolbar>
+          {/* Display small screen menu button, which opens the drawer if clicked */}
           <IconButton
             aria-label="open drawer"
             edge="start"
@@ -60,20 +76,24 @@ function DrawerAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+          {/* Otherwise display the default menu  */}
+          <Link
+            href="/"
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", sm: "block", textDecoration: "none" },
+              color: "secondary.contrastText",
+            }}
           >
-            {appName}
-          </Typography>
+            <Typography variant="h6">{appName}</Typography>
+          </Link>
+
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
               <Button key={item} variant="">
                 {item}
               </Button>
             ))}
-            
           </Box>
         </Toolbar>
       </AppBar>
