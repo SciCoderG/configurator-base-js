@@ -1,11 +1,10 @@
-import { CardMedia, Typography } from "@mui/material";
-import FullscreenContainer from "../FullscreenContainer";
-import FullscreenSection from "../FullscreenSection";
+import { Card, CardMedia, Grid, Typography } from "@mui/material";
+import { Container } from "@mui/system";
 
 export default function LandingPage() {
   return (
-    <FullscreenContainer>
-      <FullscreenSection>
+    <Container maxWidth="md">
+      <Grid container alignItems="center" justifyContent="center" sx={{textAlign:"center"}}>
         <Typography variant="h1" gutterBottom>
           CrystalMesh
         </Typography>
@@ -16,15 +15,18 @@ export default function LandingPage() {
           currently developing our third person action adventure game “The Last
           Premiere” with federal funding.
         </Typography>
-        {/* <iframe
-          width="300"
+        <iframe
+          width="90%"
+          height="400px"
+          origin={window.location.origin}
           src="https://www.youtube-nocookie.com/embed/4xodFD_esck"
-          title="YouTube video player"
+          title="The Last Premiere Trailer"
+          alt="The Last Premiere Trailer"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-        ></iframe> */}
-      </FullscreenSection>
-    </FullscreenContainer>
+        ></iframe>
+      </Grid>
+    </Container>
   );
 }

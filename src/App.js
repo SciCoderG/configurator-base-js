@@ -3,8 +3,8 @@ import {
   GlobalStyles,
   ThemeProvider,
 } from "@mui/material";
-import DrawerAppBar from "./Components/DrawerAppBar";
-import Footer from "./Components/Footer";
+import DrawerAppBar from "./Components/Pages/DrawerAppBar";
+import Footer from "./Components/Pages/Footer";
 import Theme from "./theme";
 import LandingPage from "./Components/Pages/LandingPage";
 const globalStyles = {
@@ -28,6 +28,10 @@ function App() {
         {/* <BabylonExperience /> */}
         <div className="foreground">
           <LandingPage />
+          <LandingPage />
+          <LandingPage />
+          <LandingPage />
+
           <Footer footers={footers} />
         </div>
       </div>

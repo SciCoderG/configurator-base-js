@@ -14,14 +14,34 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Link, Menu, MenuItem } from "@mui/material";
+import { Link, Menu, MenuItem, Slide, useScrollTrigger } from "@mui/material";
+import styled from "@emotion/styled";
 
 const drawerWidth = 240;
 const navItems = ["Games", "Music", "Projects", "Contact"];
 const appName = "CrystalMesh";
 
+const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
+
+function HideOnScroll(props) {
+  const { children } = props;
+  // Note that you normally won't need to set the window ref as useScrollTrigger
+  // will default to window.
+  // This is only being set here because the demo is in an iframe.
+  const trigger = useScrollTrigger();
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
+
+HideOnScroll.propTypes = {
+  children: PropTypes.element.isRequired
+};
+
 function DrawerAppBar(props) {
-  const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -33,11 +53,7 @@ function DrawerAppBar(props) {
    */
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Menu>
-        <MenuItem component={Link} href="/">
-          CrystalMesh
-        </MenuItem>
-      </Menu>
+      <Link href="/">{appName}</Link>
       <Link href="/" sx={{ color: "secondary.contrastText" }}>
         <Typography
           variant="h6"
@@ -60,47 +76,49 @@ function DrawerAppBar(props) {
     </Box>
   );
 
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-
   return (
     <Box sx={{ display: "flex" }}>
-      <AppBar>
-        <Toolbar>
-          {/* Display small screen menu button, which opens the drawer if clicked */}
-          <IconButton
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          {/* Otherwise display the default menu  */}
-          <Link
-            href="/"
-            sx={{
-              flexGrow: 1,
-              display: { xs: "none", sm: "block", textDecoration: "none" },
-              color: "secondary.contrastText",
-            }}
-          >
-            <Typography variant="h6">{appName}</Typography>
-          </Link>
+      <HideOnScroll>
+        <AppBar>
+          <Toolbar>
+            {/* Display small screen menu button, which opens the drawer if clicked */}
+            <IconButton
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: "none" } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            {/* Otherwise display the default menu  */}
+            <Link
+              href="/"
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", sm: "block", textDecoration: "none" },
+                color: "secondary.contrastText",
+              }}
+            >
+              <Typography variant="h6">{appName}</Typography>
+            </Link>
 
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
-              <Button key={item} variant="">
-                {item}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </AppBar>
+            <Box sx={{ display: { xs: "none", sm: "block" } }}>
+              {navItems.map((item) => (
+                <Button key={item} variant="">
+                  {item}
+                </Button>
+              ))}
+            </Box>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
+
+      <Offset />
+      <Offset />
+
       {/** Mobile App bar */}
       <Box component="nav">
         <Drawer
-          container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
@@ -121,13 +139,5 @@ function DrawerAppBar(props) {
     </Box>
   );
 }
-
-DrawerAppBar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
 
 export default DrawerAppBar;

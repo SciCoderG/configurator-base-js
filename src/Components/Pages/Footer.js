@@ -5,7 +5,7 @@ import "./Footer.css";
 
 export default function Footer({ footers }) {
   return (
-    <Box color="text.secondary">
+    <Box color="text.secondary" sx={{ mt: 3, mb: 1 }}>
       <Container maxwidth="lg" component="footer">
         <Grid container justifyContent="center" spacing={2}>
           {footers.map((footer) => (
@@ -16,7 +16,7 @@ export default function Footer({ footers }) {
             </Grid>
           ))}
         </Grid>
-        <Copyright sx={{ mt: 3 }} />
+        <Copyright sx={{ mt: 1 }} />
       </Container>
     </Box>
   );
