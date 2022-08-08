@@ -1,0 +1,37 @@
+/* Iframe wrapper that allows to make youtube iframe responsive */
+/* Iframe wrapper that allows to make youtube iframe responsive */
+.iframe-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 15px;
+    height: 0;
+    max-width: 400px;
+  }
+  
+  /* Responsive iframe styles */
+  iframe {
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 300px;
+  }
+
+  .iframe-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: block;
+  }
+  
+  /* Adding hover effect to pseudo element */
+  .iframe-wrapper:hover::after {
+    content: none;
+  }
+
+  
+  
+  

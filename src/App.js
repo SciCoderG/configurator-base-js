@@ -1,12 +1,10 @@
-import {
-  CssBaseline,
-  GlobalStyles,
-  ThemeProvider,
-} from "@mui/material";
+import { CssBaseline, GlobalStyles, ThemeProvider } from "@mui/material";
 import DrawerAppBar from "./Components/Pages/DrawerAppBar";
 import Footer from "./Components/Pages/Footer";
 import Theme from "./theme";
-import LandingPage from "./Components/Pages/LandingPage";
+import Home from "./Components/Pages/Home";
+import { Route, Routes } from "react-router-dom";
+import Privacy from "./Components/Pages/Privacy";
 const globalStyles = {
   a: { textDecoration: "none" },
 };
@@ -24,16 +22,13 @@ function App() {
         <header className="App-header">
           <DrawerAppBar />
         </header>
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/privacy" element={<Privacy />}/>
 
-        {/* <BabylonExperience /> */}
-        <div className="foreground">
-          <LandingPage />
-          <LandingPage />
-          <LandingPage />
-          <LandingPage />
+        </Routes>
 
-          <Footer footers={footers} />
-        </div>
+        <Footer footers={footers} />
       </div>
     </ThemeProvider>
   );

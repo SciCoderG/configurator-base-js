@@ -4,11 +4,22 @@ import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 // A custom theme for this app
 let theme = createTheme({
   palette: {
+    mode: 'light',
+    primary: {
+      main: '#f50057',
+    },
+    background: {
+      default: "#ffffff",
+      paper:"#eeeeee"
+    }
+  },
+  spacing: 8
+});
+
+let darktheme = createTheme({
+  palette: {
     mode: 'dark',
     primary: {
-      main: '#626262',
-    },
-    secondary: {
       main: '#f50057',
     },
     background: {
@@ -18,6 +29,7 @@ let theme = createTheme({
   },
   spacing: 8
 });
+darktheme = responsiveFontSizes(darktheme);
 theme = responsiveFontSizes(theme);
 
 

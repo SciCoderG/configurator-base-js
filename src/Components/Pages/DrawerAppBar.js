@@ -38,7 +38,7 @@ function HideOnScroll(props) {
 }
 
 HideOnScroll.propTypes = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
 };
 
 function DrawerAppBar(props) {
@@ -53,15 +53,11 @@ function DrawerAppBar(props) {
    */
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Link href="/">{appName}</Link>
-      <Link href="/" sx={{ color: "secondary.contrastText" }}>
-        <Typography
-          variant="h6"
-          sx={{ my: 2, display: { textDecoration: "none" } }}
-        >
+      <Button href="/" sx={{ width: "100%" }}>
+        <Typography variant="h6" sx={{ my: 2 }}>
           {appName}
         </Typography>
-      </Link>
+      </Button>
 
       <Divider />
       <List>
@@ -79,7 +75,7 @@ function DrawerAppBar(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <HideOnScroll>
-        <AppBar>
+        <AppBar enableColorOnDark>
           <Toolbar>
             {/* Display small screen menu button, which opens the drawer if clicked */}
             <IconButton
@@ -96,7 +92,7 @@ function DrawerAppBar(props) {
               sx={{
                 flexGrow: 1,
                 display: { xs: "none", sm: "block", textDecoration: "none" },
-                color: "secondary.contrastText",
+                color: "primary.contrastText",
               }}
             >
               <Typography variant="h6">{appName}</Typography>
