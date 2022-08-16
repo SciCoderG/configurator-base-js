@@ -2,9 +2,9 @@ import "./YoutubeVideo.css";
 
 export default function YoutubeVideo({ src, title, alt }) {
   return (
-    <div class="video-container">
+    <div className="video-container">
       <iframe
-        class="video"
+        className="video"
         origin={window.location.origin}
         src={src}
         title={title}

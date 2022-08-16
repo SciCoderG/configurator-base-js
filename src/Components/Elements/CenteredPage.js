@@ -5,6 +5,7 @@ export default function CenteredPage({ children, ...props }) {
   return (
     <Container maxWidth="md">
       <Grid
+        props
         container
         alignItems="center"
         justifyContent="center"

@@ -8,6 +8,7 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
+import { Container } from "@mui/system";
 
 export class ImageCardData {
   constructor(title, description, src, alt, link) {
@@ -20,20 +21,36 @@ export class ImageCardData {
 }
 
 export default function ImageCard({ data }) {
+  const { link, title, alt, src, description } = data;
   return (
-    <Card>
-      <CardActionArea href={data.link}>
-        <CardHeader color="primary" title={data.title} />
-
-        <CardMedia
-          component="img"
-          height="140"
-          image={data.src}
-          alt={data.alt}
-        />
-        <CardContent>
-          <Typography variant="body2" color="text.secondary">
-            {data.description}
+    <Card sx={{ height: "100%" }}>
+      <CardActionArea
+        href={link}
+        sx={{ height: "100%", display: "flex", flexDirection: "column" }}
+      >
+        <CardMedia component="img" image={src} alt={alt} />
+        <CardContent
+          sx={{
+            flexGrow: 1,
+            textAlign: "left",
+            mx: 2,
+            display: "grid",
+            gridTemplateRows: "auto auto 1fr",
+            alignSelf:"flex-start"
+          }}
+        >
+          <Typography variant="h5" gutterBottom>
+            {title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary" gutterBottom>
+            {description}
+          </Typography>
+          <Typography
+            variant="h5"
+            color="primary"
+            sx={{ alignSelf: "flex-end" }}
+          >
+            Learn More
           </Typography>
         </CardContent>
       </CardActionArea>
