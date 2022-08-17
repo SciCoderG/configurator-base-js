@@ -7,7 +7,7 @@ import {
 } from "@babylonjs/core";
 import { Container } from "@mui/system";
 import SceneComponent from "./SceneComponent";
-import "./BabylonExperience.css"
+import "./BabylonExperience.css";
 
 function BabylonExperience() {
   let sphere;
@@ -37,7 +37,11 @@ function BabylonExperience() {
     // Default intensity is 1. Let's dim the light a small amount
     light.intensity = 0.7;
 
-    sphere = MeshBuilder.CreateSphere("sphere", {diameter:3, segments:8}, scene);
+    sphere = MeshBuilder.CreateSphere(
+      "sphere",
+      { diameter: 3, segments: 8 },
+      scene
+    );
 
     // Move the box upward 1/2 its height
     sphere.position.y = 1;
@@ -54,7 +58,8 @@ function BabylonExperience() {
       var deltaTimeInMillis = scene.getEngine().getDeltaTime();
 
       const rpm = 10;
-      sphere.rotation.y += (rpm / 60) * Math.PI * 2 * (deltaTimeInMillis / 1000);
+      sphere.rotation.y +=
+        (rpm / 60) * Math.PI * 2 * (deltaTimeInMillis / 1000);
     }
   };
 

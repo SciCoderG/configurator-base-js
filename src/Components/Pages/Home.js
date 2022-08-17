@@ -22,14 +22,14 @@ const cards = [
   ),
   new ImageCardData(
     "3D Modeling",
-    "3D Model creation for digital environments and 3D characters modeling and animations. ",
+    "3D Model creation for digital environments and 3D characters modeling and animations.",
     "/01_TLP_CharacterConcepts.png",
     "",
     "/modeling"
   ),
   new ImageCardData(
     "Music",
-    "Video-Game music creation.",
+    "Let us create customized, immersive music for your app or game.",
     "/01_TLP_CharacterConcepts.png",
     "",
     "/music"
@@ -68,7 +68,7 @@ export default function Home() {
           </Grid>
         </FullscreenSection>
 
-        <Grid item>
+        <FullscreenSection>
           <Typography variant="h4" sx={{ mb: 4 }}>
             We create AR/VR apps, design games and craft 3D models, tailored for
             your needs - take a look at how we can support you.
@@ -76,18 +76,16 @@ export default function Home() {
           <Grid container spacing={2} alignItems="stretch" direction="row">
             {services}
           </Grid>
-        </Grid>
+        </FullscreenSection>
 
         <Grid item xs={12}>
           <Typography variant="h1" gutterBottom>
             CrystalMesh
           </Typography>
-          <Typography variant="subtitle1">
+          <Typography variant="subtitle1" sx={{ mb: 4 }}>
             CrystalMesh is an independent game studio based in Trier, Germany.
             We specialize on the development of Augmented Reality and Virtual
             Reality applications for clients, using Unity and the Unreal Engine.
-          </Typography>
-          <Typography variant="subtitle1" sx={{ mb: 4 }}>
             We are currently developing our third person action adventure game
             “The Last Premiere” with federal funding.
           </Typography>
