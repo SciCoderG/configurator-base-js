@@ -9,7 +9,7 @@ const cards = [
   new ImageCardData(
     "AR/VR and Web 3.0",
     "Modern technologies make it possible to showcase your products in previously unkown ways.",
-    "/01_TLP_CharacterConcepts.png",
+    "/vr.svg",
     "",
     "/xr-development"
   ),
