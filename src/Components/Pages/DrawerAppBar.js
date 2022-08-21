@@ -17,10 +17,21 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { Link, Menu, MenuItem, Slide, useScrollTrigger } from "@mui/material";
 import styled from "@emotion/styled";
 
-const drawerWidth = 240;
-const navItems = ["Games", "Music", "Projects", "Contact"];
-const appName = "CrystalMesh";
+class AppBarLinkData {
+  constructor(content, link) {
+    this.content = content;
+    this.link = link;
+  }
+}
 
+const drawerWidth = 240;
+const navItems = [
+  new AppBarLinkData("Games", "/games"),
+  new AppBarLinkData("Music", "/music"),
+  new AppBarLinkData("Projects", "/projects"),
+  new AppBarLinkData("Contact", "/contact"),
+];
+const appName = "CrystalMesh";
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
 
 function HideOnScroll(props) {
@@ -62,9 +73,9 @@ function DrawerAppBar(props) {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+          <ListItem key={item.content} disablePadding>
+            <ListItemButton href={item.link} sx={{ textAlign: "center" }}>
+              <ListItemText primary={item.content} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -82,8 +93,11 @@ function DrawerAppBar(props) {
               aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
-              
-              sx={{ mr: 2, display: { sm: "none" }, color:"primary.contrastText" }}
+              sx={{
+                mr: 2,
+                display: { sm: "none" },
+                color: "primary.contrastText",
+              }}
             >
               <MenuIcon />
             </IconButton>
@@ -101,8 +115,8 @@ function DrawerAppBar(props) {
 
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               {navItems.map((item) => (
-                <Button key={item} variant="">
-                  {item}
+                <Button href={item.link} key={item.content} variant="">
+                  {item.content}
                 </Button>
               ))}
             </Box>

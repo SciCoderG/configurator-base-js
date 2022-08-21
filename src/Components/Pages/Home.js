@@ -16,21 +16,21 @@ const cards = [
   new ImageCardData(
     "Unity Consultation",
     "Need help adding a complex feature or don't know how to solve a problem? Let us help you with your Unity project.",
-    "/01_TLP_CharacterConcepts.png",
+    "/vr.svg",
     "",
     "/consultation"
   ),
   new ImageCardData(
     "3D Modeling",
     "3D Model creation for digital environments and 3D characters modeling and animations.",
-    "/01_TLP_CharacterConcepts.png",
+    "/vr.svg",
     "",
     "/modeling"
   ),
   new ImageCardData(
     "Music",
     "Let us create customized, immersive music for your app or game.",
-    "/01_TLP_CharacterConcepts.png",
+    "/vr.svg",
     "",
     "/music"
   ),
@@ -56,7 +56,7 @@ export default function Home() {
       >
         <FullscreenSection>
           <Grid container>
-            <Grid item xs={12} sm={12} sx={{ textAlign: "left" }}>
+            <Grid item xs={12} sm={12} sx={{ textAlign: "center" }}>
               <Typography variant="h1" gutterBottom>
                 Crafting Experiences
               </Typography>
@@ -69,10 +69,13 @@ export default function Home() {
         </FullscreenSection>
 
         <FullscreenSection>
-          <Typography variant="h4" sx={{ mb: 4 }}>
-            We create AR/VR apps, design games and craft 3D models, tailored for
-            your needs - take a look at how we can support you.
-          </Typography>
+          <Grid item xs={12} md={8}>
+            <Typography variant="h4" sx={{ mb: 4 }}>
+              We create AR/VR apps, design games and craft 3D models, tailored
+              for your needs - this is how we support you.
+            </Typography>
+          </Grid>
+
           <Grid container spacing={2} alignItems="stretch" direction="row">
             {services}
           </Grid>
