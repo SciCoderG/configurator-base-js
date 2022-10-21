@@ -13,25 +13,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { Link, Menu, MenuItem, Slide, useScrollTrigger } from "@mui/material";
+import { Link, Slide, useScrollTrigger } from "@mui/material";
 import styled from "@emotion/styled";
+import { navItems } from "../../Data/AppData";
 
-class AppBarLinkData {
-  constructor(content, link) {
-    this.content = content;
-    this.link = link;
-  }
-}
-
+const appName = "SciCode";
 const drawerWidth = 240;
-const navItems = [
-  new AppBarLinkData("Games", "/games"),
-  new AppBarLinkData("Music", "/music"),
-  new AppBarLinkData("Projects", "/projects"),
-  new AppBarLinkData("Contact", "/contact"),
-];
-const appName = "CrystalMesh";
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
 
 function HideOnScroll(props) {
@@ -106,7 +93,7 @@ function DrawerAppBar(props) {
               href="/"
               sx={{
                 flexGrow: 1,
-                display: { xs: "none", sm: "block", textDecoration: "none" },
+                display: { sm: "block", textDecoration: "none" },
                 color: "primary.contrastText",
               }}
             >

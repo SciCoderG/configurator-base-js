@@ -17,8 +17,9 @@ function App() {
   return (
     <ThemeProvider theme={Theme}>
       <CssBaseline />
+      {/* {inputGlobalStyles} */}
+
       <div className="App">
-        {inputGlobalStyles}
         <header className="App-header">
           <DrawerAppBar />
         </header>

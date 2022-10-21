@@ -5,12 +5,12 @@ import "./Footer.css";
 
 export default function Footer({ footers }) {
   return (
-    <Box color="text.secondary" sx={{ mt: 3, mb: 1 }}>
+    <Box color="secondary" sx={{ mt: 3, mb: 1 }}>
       <Container maxwidth="lg" component="footer">
         <Grid container justifyContent="center" spacing={2}>
           {footers.map((footer) => (
             <Grid item key={footer.name}>
-              <Link href={footer.link} color="inherit">
+              <Link href={footer.link} color="text.secondary">
                 {footer.name}
               </Link>
             </Grid>

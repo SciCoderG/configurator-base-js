@@ -5,7 +5,7 @@ export default function Copyright(props) {
 
     <Typography
       variant="body2"
-      color="inherit"
+      color="text.secondary"
       align="center"
       gutterBottom
       {...props}

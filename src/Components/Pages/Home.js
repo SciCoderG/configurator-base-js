@@ -93,11 +93,11 @@ export default function Home() {
             “The Last Premiere” with federal funding.
           </Typography>
 
-          <YoutubeVideo
+          {/* <YoutubeVideo
             src="https://www.youtube-nocookie.com/embed/4xodFD_esck"
             title="The Last Premiere Trailer"
             alt="The Last Premiere Trailer"
-          />
+          /> */}
         </Grid>
       </Grid>
     </Container>
